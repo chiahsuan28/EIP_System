@@ -1,0 +1,685 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="EIP_DBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012.Azure" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="tApplypunch">
+    <Key>
+      <PropertyRef Name="fId" />
+    </Key>
+    <Property Name="fId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="fEmployeeId" Type="int" Nullable="false" />
+    <Property Name="fPunchTime" Type="datetime" Nullable="false" />
+    <Property Name="fApplystatus" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="fSignoffId" Type="int" />
+  </EntityType>
+  <EntityType Name="tBillboard">
+    <Key>
+      <PropertyRef Name="fId" />
+    </Key>
+    <Property Name="fId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="fTitle" Type="nvarchar" MaxLength="50" />
+    <Property Name="fContent" Type="nvarchar" MaxLength="1000" />
+    <Property Name="fType" Type="int" />
+    <Property Name="fEmployeeId" Type="int" />
+    <Property Name="fPostTime" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="tBudget">
+    <Key>
+      <PropertyRef Name="fBudgetId" />
+    </Key>
+    <Property Name="fBudgetId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="fProjectId" Type="int" Nullable="false" />
+    <Property Name="fSalaryHour" Type="int" />
+    <Property Name="fManagementFeePct" Type="float" />
+    <Property Name="fBudget" Type="int" />
+    <Property Name="fApplydate" Type="datetime" />
+    <Property Name="fPassdate" Type="datetime" />
+    <Property Name="fagree" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="tCalendar">
+    <Key>
+      <PropertyRef Name="fId" />
+    </Key>
+    <Property Name="fId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="fTitle" Type="nvarchar" MaxLength="50" />
+    <Property Name="fContent" Type="nvarchar" MaxLength="100" />
+    <Property Name="fStart" Type="nvarchar" MaxLength="50" />
+    <Property Name="fEnd" Type="nvarchar" MaxLength="50" />
+    <Property Name="fEmployeeId" Type="int" />
+    <Property Name="fSort" Type="nvarchar" MaxLength="50" />
+    <Property Name="fProjectId" Type="int" />
+  </EntityType>
+  <EntityType Name="tEmployee">
+    <Key>
+      <PropertyRef Name="fEmployeeId" />
+    </Key>
+    <Property Name="fEmployeeId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="fName" Type="nvarchar" MaxLength="20" Nullable="false" />
+    <Property Name="fIdent" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="fPassword" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="fDepartment" Type="nvarchar" MaxLength="20" Nullable="false" />
+    <Property Name="fTitle" Type="nvarchar" MaxLength="10" Nullable="false" />
+    <Property Name="fEmail" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="fBirth" Type="date" Nullable="false" />
+    <Property Name="fPhonePersonal" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="fHireDate" Type="date" Nullable="false" />
+    <Property Name="fSalaryMonth" Type="int" Nullable="false" />
+    <Property Name="fSalaryHour" Type="int" />
+    <Property Name="fPhoneHouse" Type="varchar" MaxLength="20" />
+    <Property Name="fCountry" Type="nvarchar" MaxLength="10" Nullable="false" />
+    <Property Name="fBirthPlace" Type="nvarchar" MaxLength="10" Nullable="false" />
+    <Property Name="fEducation" Type="nvarchar" MaxLength="20" Nullable="false" />
+    <Property Name="fAddressNow" Type="nvarchar" MaxLength="50" />
+    <Property Name="fAddressOrigin" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="fEngyName" Type="nvarchar" MaxLength="20" Nullable="false" />
+    <Property Name="fEngyPhone" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="fOld" Type="float" />
+    <Property Name="fState" Type="nvarchar" MaxLength="10" Nullable="false" />
+    <Property Name="fAuth" Type="int" Nullable="false" />
+    <Property Name="fFireDate" Type="date" />
+    <Property Name="fBackDate" Type="date" />
+  </EntityType>
+  <EntityType Name="tIncome">
+    <Key>
+      <PropertyRef Name="fId" />
+    </Key>
+    <Property Name="fId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="fProjectId" Type="int" Nullable="false" />
+    <Property Name="fTaxID" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="fPaymentStatus" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="fLevelPCT" Type="float" Nullable="false" />
+    <Property Name="fInvoiceDate" Type="datetime" />
+    <Property Name="fAmount" Type="int" Nullable="false" />
+    <Property Name="fTaxRate" Type="float" Nullable="false" />
+    <Property Name="fTaxPrice" Type="int" Nullable="false" />
+    <Property Name="fTotal" Type="int" Nullable="false" />
+    <Property Name="fIsPay" Type="nvarchar" MaxLength="50" />
+    <Property Name="fPaymentDate" Type="datetime" />
+  </EntityType>
+  <EntityType Name="tLeave">
+    <Key>
+      <PropertyRef Name="fId" />
+    </Key>
+    <Property Name="fId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="fEmployeeId" Type="int" Nullable="false" />
+    <Property Name="fSort" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="fApplyDate" Type="datetime" Nullable="false" />
+    <Property Name="fActiveDate" Type="datetime" Nullable="false" />
+    <Property Name="fEndDate" Type="datetime" Nullable="false" />
+    <Property Name="fTimeCount" Type="float" Nullable="false" />
+    <Property Name="fReason" Type="nvarchar" MaxLength="200" Nullable="false" />
+    <Property Name="fSignoffId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tLeavecount">
+    <Key>
+      <PropertyRef Name="fId" />
+    </Key>
+    <Property Name="fId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="fEmployeeId" Type="int" Nullable="false" />
+    <Property Name="fSort" Type="nvarchar" MaxLength="20" Nullable="false" />
+    <Property Name="fAlltime" Type="float" Nullable="false" />
+    <Property Name="fUesdtime" Type="float" Nullable="false" />
+    <Property Name="fRemaintime" Type="float" Nullable="false" />
+    <Property Name="fStartdate" Type="datetime" />
+    <Property Name="fEnddate" Type="datetime" />
+  </EntityType>
+  <EntityType Name="tLevel">
+    <Key>
+      <PropertyRef Name="fLevelId" />
+    </Key>
+    <Property Name="fLevelId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="fProjectId" Type="int" Nullable="false" />
+    <Property Name="fLevelName" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="fEstimateTime" Type="int" />
+    <Property Name="fSpendTime" Type="int" />
+  </EntityType>
+  <EntityType Name="tMetting_date">
+    <Key>
+      <PropertyRef Name="fId" />
+    </Key>
+    <Property Name="fId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="fEmployeeId" Type="int" />
+    <Property Name="fDate" Type="date" />
+    <Property Name="fReason" Type="nvarchar" MaxLength="200" />
+    <Property Name="fStarttime" Type="time" Precision="7" />
+    <Property Name="fEndtime" Type="time" Precision="7" />
+    <Property Name="fRoom" Type="nvarchar" MaxLength="10" />
+  </EntityType>
+  <EntityType Name="tNotify">
+    <Key>
+      <PropertyRef Name="fId" />
+    </Key>
+    <Property Name="fId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="fEmployeeId" Type="int" Nullable="false" />
+    <Property Name="fTitle" Type="nvarchar" MaxLength="50" />
+    <Property Name="fContent" Type="nvarchar" MaxLength="100" />
+    <Property Name="fSort" Type="nvarchar" MaxLength="50" />
+    <Property Name="fType" Type="int" />
+  </EntityType>
+  <EntityType Name="tOvertime">
+    <Key>
+      <PropertyRef Name="fId" />
+    </Key>
+    <Property Name="fId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="fEmployeeId" Type="int" Nullable="false" />
+    <Property Name="fSort" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="fApplyDate" Type="date" Nullable="false" />
+    <Property Name="fUpdateDate" Type="date" Nullable="false" />
+    <Property Name="fTimeCount" Type="float" Nullable="false" />
+    <Property Name="fReason" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="fSignoffId" Type="int" />
+  </EntityType>
+  <EntityType Name="tProject">
+    <Key>
+      <PropertyRef Name="fProjectId" />
+    </Key>
+    <Property Name="fProjectId" Type="int" Nullable="false" />
+    <Property Name="fProjectName" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="fEmployeeId" Type="int" Nullable="false" />
+    <Property Name="fClient" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="fPrice" Type="int" />
+    <Property Name="fCreatdDate" Type="datetime" Nullable="false" />
+    <Property Name="fDateline" Type="datetime" />
+    <Property Name="fProgress" Type="float" Nullable="false" />
+    <Property Name="fPaymentStatus" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="fStatus" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="tProjectDetail">
+    <Key>
+      <PropertyRef Name="fProjectDetailId" />
+    </Key>
+    <Property Name="fProjectDetailId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="fProjectId" Type="int" Nullable="false" />
+    <Property Name="fLevelId" Type="int" />
+    <Property Name="fTaskName" Type="nvarchar" MaxLength="50" />
+    <Property Name="fEmployeeId" Type="int" />
+    <Property Name="fStatus" Type="nvarchar" MaxLength="50" />
+    <Property Name="fStartTime" Type="datetime" />
+    <Property Name="fDeadline" Type="datetime" />
+    <Property Name="fTimes" Type="int" />
+    <Property Name="fRemarks" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="tPunchtime">
+    <Key>
+      <PropertyRef Name="fId" />
+    </Key>
+    <Property Name="fId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="fDatetime" Type="datetime" Nullable="false" />
+    <Property Name="fEmployeeId" Type="int" Nullable="false" />
+    <Property Name="fstatus" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="fPunchclass" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="fLatitude" Type="decimal" Precision="9" Scale="6" />
+    <Property Name="fLongitude" Type="decimal" Precision="8" Scale="6" />
+  </EntityType>
+  <EntityType Name="tSignoff">
+    <Key>
+      <PropertyRef Name="fId" />
+    </Key>
+    <Property Name="fId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="fLeaveId" Type="int" />
+    <Property Name="fAlpplypunchId" Type="int" />
+    <Property Name="fOvertimeId" Type="int" />
+    <Property Name="fSupervisorId" Type="int" Nullable="false" />
+    <Property Name="fIsAgreed" Type="int" />
+    <Property Name="fApplyClass" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="fStartdate" Type="datetime" Nullable="false" />
+    <Property Name="fPassdate" Type="datetime" />
+    <Property Name="fEnddate" Type="datetime" Nullable="false" />
+    <Property Name="fRevoke" Type="int" />
+  </EntityType>
+  <EntityType Name="tTeamMember">
+    <Key>
+      <PropertyRef Name="fId" />
+    </Key>
+    <Property Name="fId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="fProjectId" Type="int" Nullable="false" />
+    <Property Name="fEmployeeId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tTimeRecords">
+    <Key>
+      <PropertyRef Name="fTimeRecordId" />
+    </Key>
+    <Property Name="fTimeRecordId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="fDate" Type="datetime" Nullable="false" />
+    <Property Name="fEmployeeId" Type="int" Nullable="false" />
+    <Property Name="fProjectId" Type="int" Nullable="false" />
+    <Property Name="fProjectDetailId" Type="int" Nullable="false" />
+    <Property Name="fTime" Type="int" Nullable="false" />
+    <Property Name="fApprove" Type="nvarchar" MaxLength="50" />
+    <Property Name="fRemarks" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <Association Name="FK_tApplypunch_tEmployee">
+    <End Role="tEmployee" Type="Self.tEmployee" Multiplicity="1" />
+    <End Role="tApplypunch" Type="Self.tApplypunch" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tEmployee">
+        <PropertyRef Name="fEmployeeId" />
+      </Principal>
+      <Dependent Role="tApplypunch">
+        <PropertyRef Name="fEmployeeId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tBillboard_tEmployee">
+    <End Role="tEmployee" Type="Self.tEmployee" Multiplicity="0..1" />
+    <End Role="tBillboard" Type="Self.tBillboard" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tEmployee">
+        <PropertyRef Name="fEmployeeId" />
+      </Principal>
+      <Dependent Role="tBillboard">
+        <PropertyRef Name="fEmployeeId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tBudget_tProject">
+    <End Role="tProject" Type="Self.tProject" Multiplicity="1" />
+    <End Role="tBudget" Type="Self.tBudget" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tProject">
+        <PropertyRef Name="fProjectId" />
+      </Principal>
+      <Dependent Role="tBudget">
+        <PropertyRef Name="fProjectId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tCalendar_tEmployee">
+    <End Role="tEmployee" Type="Self.tEmployee" Multiplicity="0..1" />
+    <End Role="tCalendar" Type="Self.tCalendar" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tEmployee">
+        <PropertyRef Name="fEmployeeId" />
+      </Principal>
+      <Dependent Role="tCalendar">
+        <PropertyRef Name="fEmployeeId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tCalendar_tProject">
+    <End Role="tProject" Type="Self.tProject" Multiplicity="0..1" />
+    <End Role="tCalendar" Type="Self.tCalendar" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tProject">
+        <PropertyRef Name="fProjectId" />
+      </Principal>
+      <Dependent Role="tCalendar">
+        <PropertyRef Name="fProjectId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tIncome_tProject">
+    <End Role="tProject" Type="Self.tProject" Multiplicity="1" />
+    <End Role="tIncome" Type="Self.tIncome" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tProject">
+        <PropertyRef Name="fProjectId" />
+      </Principal>
+      <Dependent Role="tIncome">
+        <PropertyRef Name="fProjectId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tLeave_tEmployee">
+    <End Role="tEmployee" Type="Self.tEmployee" Multiplicity="1" />
+    <End Role="tLeave" Type="Self.tLeave" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tEmployee">
+        <PropertyRef Name="fEmployeeId" />
+      </Principal>
+      <Dependent Role="tLeave">
+        <PropertyRef Name="fEmployeeId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tLeavecount_tEmployee">
+    <End Role="tEmployee" Type="Self.tEmployee" Multiplicity="1" />
+    <End Role="tLeavecount" Type="Self.tLeavecount" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tEmployee">
+        <PropertyRef Name="fEmployeeId" />
+      </Principal>
+      <Dependent Role="tLeavecount">
+        <PropertyRef Name="fEmployeeId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tLevel_tProject">
+    <End Role="tProject" Type="Self.tProject" Multiplicity="1" />
+    <End Role="tLevel" Type="Self.tLevel" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tProject">
+        <PropertyRef Name="fProjectId" />
+      </Principal>
+      <Dependent Role="tLevel">
+        <PropertyRef Name="fProjectId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tMetting_date_tEmployee">
+    <End Role="tEmployee" Type="Self.tEmployee" Multiplicity="0..1" />
+    <End Role="tMetting_date" Type="Self.tMetting_date" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tEmployee">
+        <PropertyRef Name="fEmployeeId" />
+      </Principal>
+      <Dependent Role="tMetting_date">
+        <PropertyRef Name="fEmployeeId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tNotify_tEmployee">
+    <End Role="tEmployee" Type="Self.tEmployee" Multiplicity="1" />
+    <End Role="tNotify" Type="Self.tNotify" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tEmployee">
+        <PropertyRef Name="fEmployeeId" />
+      </Principal>
+      <Dependent Role="tNotify">
+        <PropertyRef Name="fEmployeeId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tOvertime_tEmployee">
+    <End Role="tEmployee" Type="Self.tEmployee" Multiplicity="1" />
+    <End Role="tOvertime" Type="Self.tOvertime" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tEmployee">
+        <PropertyRef Name="fEmployeeId" />
+      </Principal>
+      <Dependent Role="tOvertime">
+        <PropertyRef Name="fEmployeeId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tProject_tEmployee">
+    <End Role="tEmployee" Type="Self.tEmployee" Multiplicity="1" />
+    <End Role="tProject" Type="Self.tProject" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tEmployee">
+        <PropertyRef Name="fEmployeeId" />
+      </Principal>
+      <Dependent Role="tProject">
+        <PropertyRef Name="fEmployeeId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tProjectDetail_tLevel">
+    <End Role="tLevel" Type="Self.tLevel" Multiplicity="0..1" />
+    <End Role="tProjectDetail" Type="Self.tProjectDetail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tLevel">
+        <PropertyRef Name="fLevelId" />
+      </Principal>
+      <Dependent Role="tProjectDetail">
+        <PropertyRef Name="fLevelId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tProjectDetail_tProject">
+    <End Role="tProject" Type="Self.tProject" Multiplicity="1" />
+    <End Role="tProjectDetail" Type="Self.tProjectDetail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tProject">
+        <PropertyRef Name="fProjectId" />
+      </Principal>
+      <Dependent Role="tProjectDetail">
+        <PropertyRef Name="fProjectId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tProjectDetail_tProjectDetail">
+    <End Role="tEmployee" Type="Self.tEmployee" Multiplicity="0..1" />
+    <End Role="tProjectDetail" Type="Self.tProjectDetail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tEmployee">
+        <PropertyRef Name="fEmployeeId" />
+      </Principal>
+      <Dependent Role="tProjectDetail">
+        <PropertyRef Name="fEmployeeId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tPunchtime_tEmployee">
+    <End Role="tEmployee" Type="Self.tEmployee" Multiplicity="1" />
+    <End Role="tPunchtime" Type="Self.tPunchtime" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tEmployee">
+        <PropertyRef Name="fEmployeeId" />
+      </Principal>
+      <Dependent Role="tPunchtime">
+        <PropertyRef Name="fEmployeeId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tSignoff_tApplypunch">
+    <End Role="tApplypunch" Type="Self.tApplypunch" Multiplicity="0..1" />
+    <End Role="tSignoff" Type="Self.tSignoff" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tApplypunch">
+        <PropertyRef Name="fId" />
+      </Principal>
+      <Dependent Role="tSignoff">
+        <PropertyRef Name="fAlpplypunchId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tSignoff_tEmployee">
+    <End Role="tEmployee" Type="Self.tEmployee" Multiplicity="1" />
+    <End Role="tSignoff" Type="Self.tSignoff" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tEmployee">
+        <PropertyRef Name="fEmployeeId" />
+      </Principal>
+      <Dependent Role="tSignoff">
+        <PropertyRef Name="fSupervisorId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tSignoff_tLeave">
+    <End Role="tLeave" Type="Self.tLeave" Multiplicity="0..1" />
+    <End Role="tSignoff" Type="Self.tSignoff" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tLeave">
+        <PropertyRef Name="fId" />
+      </Principal>
+      <Dependent Role="tSignoff">
+        <PropertyRef Name="fLeaveId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tSignoff_tOvertime">
+    <End Role="tOvertime" Type="Self.tOvertime" Multiplicity="0..1" />
+    <End Role="tSignoff" Type="Self.tSignoff" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tOvertime">
+        <PropertyRef Name="fId" />
+      </Principal>
+      <Dependent Role="tSignoff">
+        <PropertyRef Name="fOvertimeId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tTeamMember_tProject">
+    <End Role="tProject" Type="Self.tProject" Multiplicity="1" />
+    <End Role="tTeamMember" Type="Self.tTeamMember" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tProject">
+        <PropertyRef Name="fProjectId" />
+      </Principal>
+      <Dependent Role="tTeamMember">
+        <PropertyRef Name="fProjectId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tTeamMember_tTeamMember">
+    <End Role="tEmployee" Type="Self.tEmployee" Multiplicity="1" />
+    <End Role="tTeamMember" Type="Self.tTeamMember" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tEmployee">
+        <PropertyRef Name="fEmployeeId" />
+      </Principal>
+      <Dependent Role="tTeamMember">
+        <PropertyRef Name="fEmployeeId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tTimeRecords_tEmployee">
+    <End Role="tEmployee" Type="Self.tEmployee" Multiplicity="1" />
+    <End Role="tTimeRecords" Type="Self.tTimeRecords" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tEmployee">
+        <PropertyRef Name="fEmployeeId" />
+      </Principal>
+      <Dependent Role="tTimeRecords">
+        <PropertyRef Name="fEmployeeId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tTimeRecords_tProject">
+    <End Role="tProject" Type="Self.tProject" Multiplicity="1" />
+    <End Role="tTimeRecords" Type="Self.tTimeRecords" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tProject">
+        <PropertyRef Name="fProjectId" />
+      </Principal>
+      <Dependent Role="tTimeRecords">
+        <PropertyRef Name="fProjectId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tTimeRecords_tProjectDetail">
+    <End Role="tProjectDetail" Type="Self.tProjectDetail" Multiplicity="1" />
+    <End Role="tTimeRecords" Type="Self.tTimeRecords" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tProjectDetail">
+        <PropertyRef Name="fProjectDetailId" />
+      </Principal>
+      <Dependent Role="tTimeRecords">
+        <PropertyRef Name="fProjectDetailId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="EIP_DBModelStoreContainer">
+    <EntitySet Name="tApplypunch" EntityType="Self.tApplypunch" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tBillboard" EntityType="Self.tBillboard" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tBudget" EntityType="Self.tBudget" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tCalendar" EntityType="Self.tCalendar" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tEmployee" EntityType="Self.tEmployee" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tIncome" EntityType="Self.tIncome" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tLeave" EntityType="Self.tLeave" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tLeavecount" EntityType="Self.tLeavecount" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tLevel" EntityType="Self.tLevel" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tMetting_date" EntityType="Self.tMetting_date" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tNotify" EntityType="Self.tNotify" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tOvertime" EntityType="Self.tOvertime" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tProject" EntityType="Self.tProject" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tProjectDetail" EntityType="Self.tProjectDetail" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tPunchtime" EntityType="Self.tPunchtime" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tSignoff" EntityType="Self.tSignoff" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tTeamMember" EntityType="Self.tTeamMember" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tTimeRecords" EntityType="Self.tTimeRecords" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_tApplypunch_tEmployee" Association="Self.FK_tApplypunch_tEmployee">
+      <End Role="tEmployee" EntitySet="tEmployee" />
+      <End Role="tApplypunch" EntitySet="tApplypunch" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tBillboard_tEmployee" Association="Self.FK_tBillboard_tEmployee">
+      <End Role="tEmployee" EntitySet="tEmployee" />
+      <End Role="tBillboard" EntitySet="tBillboard" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tBudget_tProject" Association="Self.FK_tBudget_tProject">
+      <End Role="tProject" EntitySet="tProject" />
+      <End Role="tBudget" EntitySet="tBudget" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tCalendar_tEmployee" Association="Self.FK_tCalendar_tEmployee">
+      <End Role="tEmployee" EntitySet="tEmployee" />
+      <End Role="tCalendar" EntitySet="tCalendar" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tCalendar_tProject" Association="Self.FK_tCalendar_tProject">
+      <End Role="tProject" EntitySet="tProject" />
+      <End Role="tCalendar" EntitySet="tCalendar" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tIncome_tProject" Association="Self.FK_tIncome_tProject">
+      <End Role="tProject" EntitySet="tProject" />
+      <End Role="tIncome" EntitySet="tIncome" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tLeave_tEmployee" Association="Self.FK_tLeave_tEmployee">
+      <End Role="tEmployee" EntitySet="tEmployee" />
+      <End Role="tLeave" EntitySet="tLeave" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tLeavecount_tEmployee" Association="Self.FK_tLeavecount_tEmployee">
+      <End Role="tEmployee" EntitySet="tEmployee" />
+      <End Role="tLeavecount" EntitySet="tLeavecount" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tLevel_tProject" Association="Self.FK_tLevel_tProject">
+      <End Role="tProject" EntitySet="tProject" />
+      <End Role="tLevel" EntitySet="tLevel" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tMetting_date_tEmployee" Association="Self.FK_tMetting_date_tEmployee">
+      <End Role="tEmployee" EntitySet="tEmployee" />
+      <End Role="tMetting_date" EntitySet="tMetting_date" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tNotify_tEmployee" Association="Self.FK_tNotify_tEmployee">
+      <End Role="tEmployee" EntitySet="tEmployee" />
+      <End Role="tNotify" EntitySet="tNotify" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tOvertime_tEmployee" Association="Self.FK_tOvertime_tEmployee">
+      <End Role="tEmployee" EntitySet="tEmployee" />
+      <End Role="tOvertime" EntitySet="tOvertime" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tProject_tEmployee" Association="Self.FK_tProject_tEmployee">
+      <End Role="tEmployee" EntitySet="tEmployee" />
+      <End Role="tProject" EntitySet="tProject" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tProjectDetail_tLevel" Association="Self.FK_tProjectDetail_tLevel">
+      <End Role="tLevel" EntitySet="tLevel" />
+      <End Role="tProjectDetail" EntitySet="tProjectDetail" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tProjectDetail_tProject" Association="Self.FK_tProjectDetail_tProject">
+      <End Role="tProject" EntitySet="tProject" />
+      <End Role="tProjectDetail" EntitySet="tProjectDetail" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tProjectDetail_tProjectDetail" Association="Self.FK_tProjectDetail_tProjectDetail">
+      <End Role="tEmployee" EntitySet="tEmployee" />
+      <End Role="tProjectDetail" EntitySet="tProjectDetail" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tPunchtime_tEmployee" Association="Self.FK_tPunchtime_tEmployee">
+      <End Role="tEmployee" EntitySet="tEmployee" />
+      <End Role="tPunchtime" EntitySet="tPunchtime" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tSignoff_tApplypunch" Association="Self.FK_tSignoff_tApplypunch">
+      <End Role="tApplypunch" EntitySet="tApplypunch" />
+      <End Role="tSignoff" EntitySet="tSignoff" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tSignoff_tEmployee" Association="Self.FK_tSignoff_tEmployee">
+      <End Role="tEmployee" EntitySet="tEmployee" />
+      <End Role="tSignoff" EntitySet="tSignoff" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tSignoff_tLeave" Association="Self.FK_tSignoff_tLeave">
+      <End Role="tLeave" EntitySet="tLeave" />
+      <End Role="tSignoff" EntitySet="tSignoff" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tSignoff_tOvertime" Association="Self.FK_tSignoff_tOvertime">
+      <End Role="tOvertime" EntitySet="tOvertime" />
+      <End Role="tSignoff" EntitySet="tSignoff" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tTeamMember_tProject" Association="Self.FK_tTeamMember_tProject">
+      <End Role="tProject" EntitySet="tProject" />
+      <End Role="tTeamMember" EntitySet="tTeamMember" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tTeamMember_tTeamMember" Association="Self.FK_tTeamMember_tTeamMember">
+      <End Role="tEmployee" EntitySet="tEmployee" />
+      <End Role="tTeamMember" EntitySet="tTeamMember" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tTimeRecords_tEmployee" Association="Self.FK_tTimeRecords_tEmployee">
+      <End Role="tEmployee" EntitySet="tEmployee" />
+      <End Role="tTimeRecords" EntitySet="tTimeRecords" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tTimeRecords_tProject" Association="Self.FK_tTimeRecords_tProject">
+      <End Role="tProject" EntitySet="tProject" />
+      <End Role="tTimeRecords" EntitySet="tTimeRecords" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tTimeRecords_tProjectDetail" Association="Self.FK_tTimeRecords_tProjectDetail">
+      <End Role="tProjectDetail" EntitySet="tProjectDetail" />
+      <End Role="tTimeRecords" EntitySet="tTimeRecords" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

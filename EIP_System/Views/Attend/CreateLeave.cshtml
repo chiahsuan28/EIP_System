@@ -1,0 +1,276 @@
+﻿@model AttendSystem.ViewModels.VMCreateLeave
+
+@{
+    ViewBag.Title = "請假申請";
+
+    string[] leavesort = { "特休假", "事假", "普通傷病假", "婚假", "喪假", "公傷病假" };
+    string[] leavesort_content =
+        {
+        @"
+            <ol>
+            <li>適用勞動基準法之事業單位，依勞動基準法第38條第1項規定，勞工在同一雇主或事業單位，繼續工作滿一定期間者，應依下列規定給予特別休假：</li>
+            <li>
+            特別休假，依所填受僱日期、特休給假方式及約定給假日期估算日數。
+            <ul>
+            <li>6個月以上1年未滿者，3日。</li>
+            <li>1年以上2年未滿者，7日。</li>
+            <li>2年以上3年未滿者，10日。</li>
+            <li>3年以上5年未滿者，每年14日。</li>
+            <li>5年以上10年未滿者，每年15日。</li>
+            <li>10年以上者，每1年加給1日，加至30日為止。</li>
+            </ul>
+            </li>
+            <li>勞工之特別休假，因年度終結或契約終止而未休之日數，雇主應發給工資。但年度終結未休之日數，經勞雇雙方協商遞延至次一年度實施者，於次一年度終結或契約終止仍未休之日數，雇主應發給工資。</li>
+            <li>依勞動基準法第84條之2規定，勞工工作年資自受僱之日起算。勞工留職停薪期間，得不併入工作年資計算。 惟如勞資雙方對於留職停薪期間年資計算另有約定，可從其約定。</li>
+            </ol>
+        ",
+        @"
+            <p>一年內合計不得超過 14 日，事假期間不給工資。</p>
+        ",
+        @"
+            <ol>
+            <li>未住院者，一年內合計不得超過 30 日。</li>
+            <li>住院者，二年內合計不得超過一年。</li>
+            <li>未住院傷病假與住院傷病假二年內合計不得超過一年。</li>
+            <li>經醫師診斷，罹患癌症(含原位癌)採門診方式治療或懷孕期間須安胎休養者 ，其治療期間或休養期間，併入住院傷病假計算。 普通傷病假一年內未超過 30 日部分，工資折半發給。</li>
+            </ol>
+        ",
+        @"
+            <p>勞工結婚給予 8 日，工資照給。</p>
+        ",
+        @"
+            <li>父母、養父母、繼父母、配偶喪亡者，喪假8日。</li>
+            <li>祖父母、子女、配偶之父母、配偶之養父母或繼父母喪亡者，喪假6日。</li>
+            <li>曾祖父母、兄弟姊妹、配偶之祖父母喪亡者，喪假3日。</li>
+            </ol>
+        ",
+        @"
+            <p>因職業災害而致殘疾、傷害或疾病者，其治療、休養期間，給予公傷病假。工資照給。</p>
+        "
+        };
+
+    List<SelectListItem> sortList = new List<SelectListItem>();
+    sortList.Add(new SelectListItem { Text = "請選擇", Value = "" });
+    foreach (var item in leavesort)
+    {
+        sortList.Add(new SelectListItem { Text = item, Value = item });
+    }
+
+    List<SelectListItem> supervisorlist = new List<SelectListItem>();
+    supervisorlist.Add(new SelectListItem { Text = "請選擇", Value = "" });
+    foreach (var supervisor in Model.employeelist.Where(m => m.job == "主管"))
+    {
+        supervisorlist.Add(new SelectListItem { Text = supervisor.name, Value = supervisor.id.ToString() });
+    }
+}
+<script src="~/Scripts/jquery-3.4.1.js"></script>
+<div class="row">
+    @*請假申請*@
+    <div class="col-md-6 col-sm-6 ">
+        <div class="x_panel">
+            <div class="x_title">
+                <h2>請假申請</h2>
+                <div class="clearfix"></div>
+            </div>
+            <div class="x_content">
+                <h5>基本資料</h5>
+                @using (Html.BeginForm())
+                {
+                    @Html.AntiForgeryToken()
+                    <div class="form-horizontal">
+                        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+                        <div class="form-group row">
+                            @Html.LabelFor(model => model.employee.id, new { @class = "control-label col-md-3 col-sm-3 " })
+                            <div class="col-md-9 col-sm-9 ">
+                                @Html.EditorFor(model => model.employee.id, new { htmlAttributes = new { @class = "form-control", @readonly = "readonly" } })
+                                @Html.ValidationMessageFor(model => model.employee.id, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            @Html.LabelFor(model => model.employee.department, new { @class = "control-label col-md-3 col-sm-3 " })
+                            <div class="col-md-9 col-sm-9 ">
+                                @Html.EditorFor(model => model.employee.department, new { htmlAttributes = new { @class = "form-control", @readonly = "readonly" } })
+                                @Html.ValidationMessageFor(model => model.employee.department, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            @Html.LabelFor(model => model.employee.job, new { @class = "control-label col-md-3 col-sm-3 " })
+                            <div class="col-md-9 col-sm-9 ">
+                                @Html.EditorFor(model => model.employee.job, new { htmlAttributes = new { @class = "form-control", @readonly = "readonly" } })
+                                @Html.ValidationMessageFor(model => model.employee.job, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            @Html.LabelFor(model => model.employee.name, new { @class = "control-label col-md-3 col-sm-3 " })
+                            <div class="col-md-9 col-sm-9 ">
+                                @Html.EditorFor(model => model.employee.name, new { htmlAttributes = new { @class = "form-control", @readonly = "readonly" } })
+                                @Html.ValidationMessageFor(model => model.employee.name, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.leavesort, htmlAttributes: new { @class = "col-form-label col-md-3 col-sm-3 label-align" })
+                            <div class="col-md-9">
+                                @Html.DropDownListFor(model => model.leavesort, sortList, htmlAttributes: new { @class = "form-control" })
+                                @Html.ValidationMessageFor(model => model.leavesort, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.start, htmlAttributes: new { @class = "col-form-label col-md-3 col-sm-3 label-align" })
+                            <div class="col-md-9">
+                                @Html.EditorFor(model => model.start, new { htmlAttributes = new { @class = "form-control", type = "datetime-local" } })
+                                @Html.ValidationMessageFor(model => model.start, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.end, htmlAttributes: new { @class = "col-form-label col-md-3 col-sm-3 label-align" })
+                            <div class="col-md-9">
+                                @Html.EditorFor(model => model.end, new { htmlAttributes = new { @class = "form-control", type = "datetime-local" } })
+                                @Html.ValidationMessageFor(model => model.end, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.timecount, htmlAttributes: new { @class = "col-form-label col-md-3 col-sm-3 label-align" })
+                            <div class="col-md-9">
+                                @Html.EditorFor(model => model.timecount, new { htmlAttributes = new { @class = "form-control", @readonly = "readonly" } })
+                                @Html.ValidationMessageFor(model => model.timecount, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.reason, htmlAttributes: new { @class = "col-form-label col-md-3 col-sm-3 label-align" })
+                            <div class="col-md-9">
+                                @Html.TextAreaFor(model => model.reason, new { @class = "form-control", style = "height:200px" })
+                                @Html.ValidationMessageFor(model => model.reason, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.supervisorId, htmlAttributes: new { @class = "col-form-label col-md-3 col-sm-3 label-align" })
+                            <div class="col-md-9 col-sm-9 ">
+                                @Html.DropDownListFor(model => model.supervisorId, supervisorlist, htmlAttributes: new { @class = "form-control" })
+                                @Html.ValidationMessageFor(model => model.supervisorId, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                        <div class="ln_solid"></div>
+                        <div class="item form-group">
+                            <div class="col-md-6 col-sm-6 offset-md-3">
+                                <button class="btn btn-info" type="button" id="btn_clear">清空</button>
+                                <button class="btn btn-dark" type="button" id="btn_demo">demo</button>
+                                <button type="submit" class="btn btn-success">送出</button>
+                            </div>
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+
+
+    @*公司請假相關法規*@
+    <div class="col-md-6 col-sm-6">
+        <div class="x_panel">
+            <div class="x_title">
+                <h2> 公司請假相關法規 </h2>
+                <div class="clearfix"></div>
+            </div>
+            <div class="x_content">
+                <ul class="nav nav-tabs bar_tabs" id="LeaveTab" role="tablist">
+                    @foreach (string item in leavesort)
+                    {
+                        <li class="nav-item">
+                            <a class="nav-link" id="@item-tab" data-toggle="tab" href="#@item" role="tab" aria-controls="a" aria-selected="true">@item</a>
+                        </li>
+                    }
+
+                </ul>
+                <div class="tab-content" id="TabContent">
+                    @for (int i = 0; i < leavesort.Length; i++)
+                    {
+                        var item = Model.leavecountList.Where(m => m.fSort == leavesort[i]).FirstOrDefault();
+                        <div class="tab-pane fade" id="@leavesort[i]" role="tabpanel" aria-labelledby="@leavesort[i]-tab">
+                            <div style="height:280px">
+                                @Html.Raw(leavesort_content[i])
+                            </div>
+                            <div class="x_title">
+                                <h2> 員工假別使用統計 </h2>
+                                <div class="clearfix"></div>
+                            </div>
+                            <div class="x_content">
+                                <table class="table table-bordered" id="leavecount" style="text-align: center; vertical-align: middle;">
+                                    <thead class="bg-primary">
+                                        <tr>
+                                            <th>總時數</th>
+                                            <th>已用時數</th>
+                                            <th>剩餘時數</th>
+                                        </tr>
+                                    </thead>
+                                    <tr>
+                                        <td style="font-size:20px">@item.fAlltime</td>
+                                        <td style="font-size:20px">@item.fUesdtime</td>
+                                        <td style="font-size:20px">@item.fRemaintime</td>
+                                    </tr>
+                                </table>
+                                <h3>使用期限: @item.fStartdate.Value.ToString("yyyy-MM-dd") ~ @item.fEnddate.Value.ToString("yyyy-MM-dd")</h3>
+                            </div>
+                        </div>
+
+                    }
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+    <script>
+        //demo
+        $("#btn_demo").click(function () {
+            $("#leavesort").val("事假");
+            $("#start").val("2020-09-28T09:00");
+            $("#end").val("2020-09-28T17:00");
+            $("#timecount").val(8);
+            $("#reason").val("測試用");
+            $("#supervisorId").val("1");
+        });
+
+        //clear
+        $("#btn_clear").click(function () {
+            $("#leavesort").val("");
+            $("#start").val("");
+            $("#end").val("");
+            $("#timecount").val("");
+            $("#reason").val("");
+            $("#supervisorId").val("");
+        });
+
+        //時數自動計算
+        $("#start").change(function () {
+            counthours();
+        });
+        $("#end").change(function () {
+            counthours();
+        });
+        function counthours() {
+            //use monent.js
+            let start = moment($("#start").val());
+            let end = moment($("#end").val());
+            var duration = moment.duration(end.diff(start));
+            var hours = duration.asHours();
+            $("#timecount").val(hours);
+        }
+
+        //假別選擇
+        $("#leavesort").change(function () {
+            console.log($(this).val());
+            let target = $(this).val();
+            $(`#${target}-tab`).trigger('click');
+        });
+    </script>
+}

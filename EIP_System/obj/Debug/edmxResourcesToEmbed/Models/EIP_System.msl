@@ -1,0 +1,269 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="EIP_DBModelStoreContainer" CdmEntityContainer="EIP_DBEntities">
+    <EntitySetMapping Name="tApplypunches">
+      <EntityTypeMapping TypeName="EIP_DBModel.tApplypunch">
+        <MappingFragment StoreEntitySet="tApplypunch">
+          <ScalarProperty Name="fId" ColumnName="fId" />
+          <ScalarProperty Name="fEmployeeId" ColumnName="fEmployeeId" />
+          <ScalarProperty Name="fPunchTime" ColumnName="fPunchTime" />
+          <ScalarProperty Name="fApplystatus" ColumnName="fApplystatus" />
+          <ScalarProperty Name="fSignoffId" ColumnName="fSignoffId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tBillboards">
+      <EntityTypeMapping TypeName="EIP_DBModel.tBillboard">
+        <MappingFragment StoreEntitySet="tBillboard">
+          <ScalarProperty Name="fId" ColumnName="fId" />
+          <ScalarProperty Name="fTitle" ColumnName="fTitle" />
+          <ScalarProperty Name="fContent" ColumnName="fContent" />
+          <ScalarProperty Name="fType" ColumnName="fType" />
+          <ScalarProperty Name="fEmployeeId" ColumnName="fEmployeeId" />
+          <ScalarProperty Name="fPostTime" ColumnName="fPostTime" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tBudgets">
+      <EntityTypeMapping TypeName="EIP_DBModel.tBudget">
+        <MappingFragment StoreEntitySet="tBudget">
+          <ScalarProperty Name="fBudgetId" ColumnName="fBudgetId" />
+          <ScalarProperty Name="fProjectId" ColumnName="fProjectId" />
+          <ScalarProperty Name="fSalaryHour" ColumnName="fSalaryHour" />
+          <ScalarProperty Name="fManagementFeePct" ColumnName="fManagementFeePct" />
+          <ScalarProperty Name="fBudget" ColumnName="fBudget" />
+          <ScalarProperty Name="fApplydate" ColumnName="fApplydate" />
+          <ScalarProperty Name="fPassdate" ColumnName="fPassdate" />
+          <ScalarProperty Name="fagree" ColumnName="fagree" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tCalendars">
+      <EntityTypeMapping TypeName="EIP_DBModel.tCalendar">
+        <MappingFragment StoreEntitySet="tCalendar">
+          <ScalarProperty Name="fId" ColumnName="fId" />
+          <ScalarProperty Name="fTitle" ColumnName="fTitle" />
+          <ScalarProperty Name="fContent" ColumnName="fContent" />
+          <ScalarProperty Name="fStart" ColumnName="fStart" />
+          <ScalarProperty Name="fEnd" ColumnName="fEnd" />
+          <ScalarProperty Name="fEmployeeId" ColumnName="fEmployeeId" />
+          <ScalarProperty Name="fSort" ColumnName="fSort" />
+          <ScalarProperty Name="fProjectId" ColumnName="fProjectId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tEmployees">
+      <EntityTypeMapping TypeName="EIP_DBModel.tEmployee">
+        <MappingFragment StoreEntitySet="tEmployee">
+          <ScalarProperty Name="fEmployeeId" ColumnName="fEmployeeId" />
+          <ScalarProperty Name="fName" ColumnName="fName" />
+          <ScalarProperty Name="fIdent" ColumnName="fIdent" />
+          <ScalarProperty Name="fPassword" ColumnName="fPassword" />
+          <ScalarProperty Name="fDepartment" ColumnName="fDepartment" />
+          <ScalarProperty Name="fTitle" ColumnName="fTitle" />
+          <ScalarProperty Name="fEmail" ColumnName="fEmail" />
+          <ScalarProperty Name="fBirth" ColumnName="fBirth" />
+          <ScalarProperty Name="fPhonePersonal" ColumnName="fPhonePersonal" />
+          <ScalarProperty Name="fHireDate" ColumnName="fHireDate" />
+          <ScalarProperty Name="fSalaryMonth" ColumnName="fSalaryMonth" />
+          <ScalarProperty Name="fSalaryHour" ColumnName="fSalaryHour" />
+          <ScalarProperty Name="fPhoneHouse" ColumnName="fPhoneHouse" />
+          <ScalarProperty Name="fCountry" ColumnName="fCountry" />
+          <ScalarProperty Name="fBirthPlace" ColumnName="fBirthPlace" />
+          <ScalarProperty Name="fEducation" ColumnName="fEducation" />
+          <ScalarProperty Name="fAddressNow" ColumnName="fAddressNow" />
+          <ScalarProperty Name="fAddressOrigin" ColumnName="fAddressOrigin" />
+          <ScalarProperty Name="fEngyName" ColumnName="fEngyName" />
+          <ScalarProperty Name="fEngyPhone" ColumnName="fEngyPhone" />
+          <ScalarProperty Name="fOld" ColumnName="fOld" />
+          <ScalarProperty Name="fState" ColumnName="fState" />
+          <ScalarProperty Name="fAuth" ColumnName="fAuth" />
+          <ScalarProperty Name="fFireDate" ColumnName="fFireDate" />
+          <ScalarProperty Name="fBackDate" ColumnName="fBackDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tIncomes">
+      <EntityTypeMapping TypeName="EIP_DBModel.tIncome">
+        <MappingFragment StoreEntitySet="tIncome">
+          <ScalarProperty Name="fId" ColumnName="fId" />
+          <ScalarProperty Name="fProjectId" ColumnName="fProjectId" />
+          <ScalarProperty Name="fTaxID" ColumnName="fTaxID" />
+          <ScalarProperty Name="fPaymentStatus" ColumnName="fPaymentStatus" />
+          <ScalarProperty Name="fLevelPCT" ColumnName="fLevelPCT" />
+          <ScalarProperty Name="fInvoiceDate" ColumnName="fInvoiceDate" />
+          <ScalarProperty Name="fAmount" ColumnName="fAmount" />
+          <ScalarProperty Name="fTaxRate" ColumnName="fTaxRate" />
+          <ScalarProperty Name="fTaxPrice" ColumnName="fTaxPrice" />
+          <ScalarProperty Name="fTotal" ColumnName="fTotal" />
+          <ScalarProperty Name="fIsPay" ColumnName="fIsPay" />
+          <ScalarProperty Name="fPaymentDate" ColumnName="fPaymentDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tLeaves">
+      <EntityTypeMapping TypeName="EIP_DBModel.tLeave">
+        <MappingFragment StoreEntitySet="tLeave">
+          <ScalarProperty Name="fId" ColumnName="fId" />
+          <ScalarProperty Name="fEmployeeId" ColumnName="fEmployeeId" />
+          <ScalarProperty Name="fSort" ColumnName="fSort" />
+          <ScalarProperty Name="fApplyDate" ColumnName="fApplyDate" />
+          <ScalarProperty Name="fActiveDate" ColumnName="fActiveDate" />
+          <ScalarProperty Name="fEndDate" ColumnName="fEndDate" />
+          <ScalarProperty Name="fTimeCount" ColumnName="fTimeCount" />
+          <ScalarProperty Name="fReason" ColumnName="fReason" />
+          <ScalarProperty Name="fSignoffId" ColumnName="fSignoffId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tLeavecounts">
+      <EntityTypeMapping TypeName="EIP_DBModel.tLeavecount">
+        <MappingFragment StoreEntitySet="tLeavecount">
+          <ScalarProperty Name="fId" ColumnName="fId" />
+          <ScalarProperty Name="fEmployeeId" ColumnName="fEmployeeId" />
+          <ScalarProperty Name="fSort" ColumnName="fSort" />
+          <ScalarProperty Name="fAlltime" ColumnName="fAlltime" />
+          <ScalarProperty Name="fUesdtime" ColumnName="fUesdtime" />
+          <ScalarProperty Name="fRemaintime" ColumnName="fRemaintime" />
+          <ScalarProperty Name="fStartdate" ColumnName="fStartdate" />
+          <ScalarProperty Name="fEnddate" ColumnName="fEnddate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tLevels">
+      <EntityTypeMapping TypeName="EIP_DBModel.tLevel">
+        <MappingFragment StoreEntitySet="tLevel">
+          <ScalarProperty Name="fLevelId" ColumnName="fLevelId" />
+          <ScalarProperty Name="fProjectId" ColumnName="fProjectId" />
+          <ScalarProperty Name="fLevelName" ColumnName="fLevelName" />
+          <ScalarProperty Name="fEstimateTime" ColumnName="fEstimateTime" />
+          <ScalarProperty Name="fSpendTime" ColumnName="fSpendTime" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tMetting_date">
+      <EntityTypeMapping TypeName="EIP_DBModel.tMetting_date">
+        <MappingFragment StoreEntitySet="tMetting_date">
+          <ScalarProperty Name="fId" ColumnName="fId" />
+          <ScalarProperty Name="fEmployeeId" ColumnName="fEmployeeId" />
+          <ScalarProperty Name="fDate" ColumnName="fDate" />
+          <ScalarProperty Name="fReason" ColumnName="fReason" />
+          <ScalarProperty Name="fStarttime" ColumnName="fStarttime" />
+          <ScalarProperty Name="fEndtime" ColumnName="fEndtime" />
+          <ScalarProperty Name="fRoom" ColumnName="fRoom" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tNotifies">
+      <EntityTypeMapping TypeName="EIP_DBModel.tNotify">
+        <MappingFragment StoreEntitySet="tNotify">
+          <ScalarProperty Name="fId" ColumnName="fId" />
+          <ScalarProperty Name="fEmployeeId" ColumnName="fEmployeeId" />
+          <ScalarProperty Name="fTitle" ColumnName="fTitle" />
+          <ScalarProperty Name="fContent" ColumnName="fContent" />
+          <ScalarProperty Name="fSort" ColumnName="fSort" />
+          <ScalarProperty Name="fType" ColumnName="fType" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tOvertimes">
+      <EntityTypeMapping TypeName="EIP_DBModel.tOvertime">
+        <MappingFragment StoreEntitySet="tOvertime">
+          <ScalarProperty Name="fId" ColumnName="fId" />
+          <ScalarProperty Name="fEmployeeId" ColumnName="fEmployeeId" />
+          <ScalarProperty Name="fSort" ColumnName="fSort" />
+          <ScalarProperty Name="fApplyDate" ColumnName="fApplyDate" />
+          <ScalarProperty Name="fUpdateDate" ColumnName="fUpdateDate" />
+          <ScalarProperty Name="fTimeCount" ColumnName="fTimeCount" />
+          <ScalarProperty Name="fReason" ColumnName="fReason" />
+          <ScalarProperty Name="fSignoffId" ColumnName="fSignoffId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tProjects">
+      <EntityTypeMapping TypeName="EIP_DBModel.tProject">
+        <MappingFragment StoreEntitySet="tProject">
+          <ScalarProperty Name="fProjectId" ColumnName="fProjectId" />
+          <ScalarProperty Name="fProjectName" ColumnName="fProjectName" />
+          <ScalarProperty Name="fEmployeeId" ColumnName="fEmployeeId" />
+          <ScalarProperty Name="fClient" ColumnName="fClient" />
+          <ScalarProperty Name="fPrice" ColumnName="fPrice" />
+          <ScalarProperty Name="fCreatdDate" ColumnName="fCreatdDate" />
+          <ScalarProperty Name="fDateline" ColumnName="fDateline" />
+          <ScalarProperty Name="fProgress" ColumnName="fProgress" />
+          <ScalarProperty Name="fPaymentStatus" ColumnName="fPaymentStatus" />
+          <ScalarProperty Name="fStatus" ColumnName="fStatus" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tProjectDetails">
+      <EntityTypeMapping TypeName="EIP_DBModel.tProjectDetail">
+        <MappingFragment StoreEntitySet="tProjectDetail">
+          <ScalarProperty Name="fProjectDetailId" ColumnName="fProjectDetailId" />
+          <ScalarProperty Name="fProjectId" ColumnName="fProjectId" />
+          <ScalarProperty Name="fLevelId" ColumnName="fLevelId" />
+          <ScalarProperty Name="fTaskName" ColumnName="fTaskName" />
+          <ScalarProperty Name="fEmployeeId" ColumnName="fEmployeeId" />
+          <ScalarProperty Name="fStatus" ColumnName="fStatus" />
+          <ScalarProperty Name="fStartTime" ColumnName="fStartTime" />
+          <ScalarProperty Name="fDeadline" ColumnName="fDeadline" />
+          <ScalarProperty Name="fTimes" ColumnName="fTimes" />
+          <ScalarProperty Name="fRemarks" ColumnName="fRemarks" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tPunchtimes">
+      <EntityTypeMapping TypeName="EIP_DBModel.tPunchtime">
+        <MappingFragment StoreEntitySet="tPunchtime">
+          <ScalarProperty Name="fId" ColumnName="fId" />
+          <ScalarProperty Name="fDatetime" ColumnName="fDatetime" />
+          <ScalarProperty Name="fEmployeeId" ColumnName="fEmployeeId" />
+          <ScalarProperty Name="fstatus" ColumnName="fstatus" />
+          <ScalarProperty Name="fPunchclass" ColumnName="fPunchclass" />
+          <ScalarProperty Name="fLatitude" ColumnName="fLatitude" />
+          <ScalarProperty Name="fLongitude" ColumnName="fLongitude" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tSignoffs">
+      <EntityTypeMapping TypeName="EIP_DBModel.tSignoff">
+        <MappingFragment StoreEntitySet="tSignoff">
+          <ScalarProperty Name="fId" ColumnName="fId" />
+          <ScalarProperty Name="fLeaveId" ColumnName="fLeaveId" />
+          <ScalarProperty Name="fAlpplypunchId" ColumnName="fAlpplypunchId" />
+          <ScalarProperty Name="fOvertimeId" ColumnName="fOvertimeId" />
+          <ScalarProperty Name="fSupervisorId" ColumnName="fSupervisorId" />
+          <ScalarProperty Name="fIsAgreed" ColumnName="fIsAgreed" />
+          <ScalarProperty Name="fApplyClass" ColumnName="fApplyClass" />
+          <ScalarProperty Name="fStartdate" ColumnName="fStartdate" />
+          <ScalarProperty Name="fPassdate" ColumnName="fPassdate" />
+          <ScalarProperty Name="fEnddate" ColumnName="fEnddate" />
+          <ScalarProperty Name="fRevoke" ColumnName="fRevoke" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tTeamMembers">
+      <EntityTypeMapping TypeName="EIP_DBModel.tTeamMember">
+        <MappingFragment StoreEntitySet="tTeamMember">
+          <ScalarProperty Name="fId" ColumnName="fId" />
+          <ScalarProperty Name="fProjectId" ColumnName="fProjectId" />
+          <ScalarProperty Name="fEmployeeId" ColumnName="fEmployeeId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tTimeRecords">
+      <EntityTypeMapping TypeName="EIP_DBModel.tTimeRecord">
+        <MappingFragment StoreEntitySet="tTimeRecords">
+          <ScalarProperty Name="fTimeRecordId" ColumnName="fTimeRecordId" />
+          <ScalarProperty Name="fDate" ColumnName="fDate" />
+          <ScalarProperty Name="fEmployeeId" ColumnName="fEmployeeId" />
+          <ScalarProperty Name="fProjectId" ColumnName="fProjectId" />
+          <ScalarProperty Name="fProjectDetailId" ColumnName="fProjectDetailId" />
+          <ScalarProperty Name="fTime" ColumnName="fTime" />
+          <ScalarProperty Name="fApprove" ColumnName="fApprove" />
+          <ScalarProperty Name="fRemarks" ColumnName="fRemarks" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>
